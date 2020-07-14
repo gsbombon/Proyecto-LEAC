@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.0.103/alzhei_games/validar_usuario.php");
             }
         });
 
@@ -49,14 +51,30 @@ public class MainActivity extends AppCompatActivity {
     private void validarUsuario(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
+
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(),PrincipalActivity.class);
-                    startActivity(intent);
+
+
+                    String result = response.replaceAll("[USUARIO_ROL}{:]","");
+                    String rol = result.replace("\"", "");
+
+                    //Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
+                    if(rol.equals("Paciente")) {
+                        Intent paciente = new Intent(getApplicationContext(),PacienteActivity.class);
+                        startActivity(paciente);
+                    }else if(rol.equals("Medico")){
+                        Intent medico = new Intent(getApplicationContext(),MedicoActivity.class);
+                        startActivity(medico);
+
+                    }else{
+                        Intent cuidador = new Intent(getApplicationContext(),CuidadorActivity.class);
+                        startActivity(cuidador);
+                       // Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     Toast.makeText(MainActivity.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
