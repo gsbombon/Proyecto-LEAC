@@ -1,6 +1,6 @@
 <?php
 $hostname='localhost';
-$database='alzhei_games';
+$database='alz_bd';
 $username='root';
 $password='123';
 
