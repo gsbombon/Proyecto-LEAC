@@ -28,7 +28,7 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtUsuario, edtPassword;
-    Button btnLogin;
+    Button btnLogin,btnRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +37,27 @@ public class MainActivity extends AppCompatActivity {
         edtUsuario = findViewById(R.id.edtUsuario);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnRegistro=findViewById(R.id.btnRegistro);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://192.168.0.103/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
             }
         });
+        btnRegistro.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        entrarRegistro();
+                    }
+                }
+        );
+    }
 
-
+    private void entrarRegistro(){
+        Intent menu= new Intent(getApplicationContext(),MenuRegistroActivity.class);
+        startActivity(menu);
     }
 
     private void validarUsuario(String URL){
@@ -95,5 +107,6 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
 }
 

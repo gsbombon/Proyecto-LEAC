@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".MenuRegistroActivity">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,53 +24,37 @@
                 android:layout_marginBottom="40dp"
                 app:srcCompat="@drawable/logo" />
 
-            <EditText
-                android:id="@+id/edtUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@android:color/darker_gray"
-                android:drawableLeft="@drawable/icon_email"
-                android:ems="10"
-                android:hint="Usuario"
-                android:inputType="textPersonName"
-                android:paddingLeft="5dp" />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@android:color/darker_gray"
-                android:drawableLeft="@drawable/icon_lock"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingLeft="5dp" />
-
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/opcPaciente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
                 android:background="#1976d2"
-                android:text="Iniciar Sesión"
+                android:text="Paciente"
                 android:textColor="#FFF"
                 android:textSize="18sp" />
             <Button
-                android:id="@+id/btnRegistro"
+                android:id="@+id/opcMedico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
                 android:background="#1976d2"
-                android:text="Registrar"
+                android:text="Medico"
+                android:textColor="#FFF"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/opcCuidador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:background="#1976d2"
+                android:text="Cuidador"
                 android:textColor="#FFF"
                 android:textSize="18sp" />
 
