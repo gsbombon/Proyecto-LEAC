@@ -2,7 +2,7 @@
     <string name="app_name">Alzhei Games</string>
     <string name="password">Password</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
-    <string name="bienvenido_doctor">BIENVENIDO DOCTOR</string>
-    <string name="imgmedico">imgMedico</string>
-    <string name="bienvenido_cuidador">BIENVENIDO CUIDADOR</string>
+    <string name="todo">TODO</string>
+    <string name="btn_juego">Juegos</string>
+    <string name="btn_asistencia">Teleasistencia</string>
 </resources>
