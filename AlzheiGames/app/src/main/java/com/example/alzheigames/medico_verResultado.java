@@ -37,6 +37,7 @@ public class medico_verResultado extends AppCompatActivity {
         setContentView(R.layout.activity_medico_ver_resultado);
         spinnerPac = (Spinner) findViewById(R.id.spinnerPPP);
         pacientes = new ArrayList<>();
+
         listarPPP();
 
         //adapater = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,pacientes);
@@ -48,7 +49,6 @@ public class medico_verResultado extends AppCompatActivity {
                 final String nombre = spinnerPac.getSelectedItem().toString().trim();
                 nomPaciente = (TextView)findViewById(R.id.txtNomPaciente);
                 nomPaciente.setText(""+nombre);
-
             }
 
             @Override

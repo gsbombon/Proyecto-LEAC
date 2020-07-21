@@ -12,13 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AsistenciaActivity"></activity>
+        <activity android:name=".MedicoActivity"></activity>
+        <activity android:name=".medico_verResultado" />
+        <activity android:name=".Cuidador_verResultado" />
         <activity android:name=".MenuJuegosActivity" />
         <activity android:name=".RegistroCuidadorActivity" />
         <activity android:name=".RegistroMedicoActivity" />
         <activity android:name=".MenuRegistroActivity" />
         <activity android:name=".RegistroPacienteActivity" />
         <activity android:name=".CuidadorActivity" />
-        <activity android:name=".MedicoActivity" />
         <activity android:name=".PacienteActivity" />
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".MainActivity">
