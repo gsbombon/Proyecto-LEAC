@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".medico_verResultado">
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#DCFBD7">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="756dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="25dp"
+          android:layout_marginRight="25dp"
+          android:gravity="center"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@android:dimen/app_icon_size"
+            android:text="Seleccione al Paciente"
+            android:textAlignment="center"
+            android:textColor="#FD510D"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerPPP"
+            android:layout_width="299dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="?attr/dialogPreferredPadding"
+            android:padding="?attr/dialogPreferredPadding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.434"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView52"
+            app:layout_constraintVertical_bias="0.061" />
+
+        <ImageView
+            android:layout_width="152dp"
+            android:layout_height="130dp"
+            android:layout_marginBottom="?attr/dialogPreferredPadding"
+            app:srcCompat="@drawable/icon_abuelo" />
+
+        <TextView
+            android:id="@+id/txtNomPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="?attr/dialogPreferredPadding"
+            android:text="Nombre Paciente"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PROGRESO"
+            android:textAlignment="center"
+            android:textColor="#FD510D "
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Juegos Realizados"
+            android:textSize="24sp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="155dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puntos Obtenidos"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="- - - - -"
+            android:textAlignment="center"
+            android:textColor="#1849FD"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="DETALLES"
+            android:textAlignment="center"
+            android:textColor="#FD510D "
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="423dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/dialogPreferredPadding"
+            android:text="TITULO JUEGO"
+            android:textAlignment="center"
+            android:textColor="#2E2600"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/dialogPreferredPadding"
+            android:text="Numero Intentos"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:textAlignment="center"
+            android:textColor="#0469D8"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/dialogPreferredPadding"
+            android:text="Puntos Alcanzados"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="----"
+            android:textAlignment="center"
+            android:textColor="#0469D8"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/dialogPreferredPadding"
+            android:text="Fecha Registro"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:text="----"
+            android:textAlignment="center"
+            android:textColor="#0469D8"
+            android:textSize="24sp" />
+
+      </LinearLayout>
+
+    </ScrollView>
+
+  </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

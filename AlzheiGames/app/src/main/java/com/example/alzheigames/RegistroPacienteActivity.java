@@ -63,7 +63,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         sGrado = (Spinner) findViewById(R.id.spinnerGrado);
         sGrado.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, Grado));
         btnReg.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 final String usuario=etUsuario.getText().toString().trim();
@@ -74,7 +73,7 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                 final String cuidador=spinner.getSelectedItem().toString().trim();
                 final String medico=spinnerMedico.getSelectedItem().toString().trim();
                 final String grado=sGrado.getSelectedItem().toString().trim();
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.102/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(RegistroPacienteActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
@@ -110,7 +109,7 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     }
     public void listarCuidador(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtener.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.118/alzhei_games/obtenerPaciente.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -122,7 +121,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                                 String country=jsonObject1.getString("USUARIO_NOMBRE");
                                 cuidador.add(country);
                             }
-
                             spinner.setAdapter(new ArrayAdapter<String>(RegistroPacienteActivity.this, android.R.layout.simple_spinner_dropdown_item, cuidador));
                         }catch (JSONException e){
                             e.printStackTrace();
@@ -139,10 +137,10 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
-    public void listarMedico(){
 
+    public void listarMedico(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtenerMedico.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.118/alzhei_games/obtenerMedico.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -154,7 +152,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                                 String country=jsonObject1.getString("USUARIO_NOMBRE");
                                 medico.add(country);
                             }
-
                             spinnerMedico.setAdapter(new ArrayAdapter<String>(RegistroPacienteActivity.this, android.R.layout.simple_spinner_dropdown_item, medico));
                         }catch (JSONException e){
                             e.printStackTrace();
@@ -171,8 +168,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
-
-
 
 
 

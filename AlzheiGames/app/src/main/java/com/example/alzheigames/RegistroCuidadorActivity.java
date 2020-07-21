@@ -49,7 +49,8 @@ public class RegistroCuidadorActivity extends AppCompatActivity {
                 final String telefono=eteTelefono.getText().toString().trim();
                 final String rol="Cuidador";
                 final String horario=sHorario.getSelectedItem().toString().trim();
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.102/alzhei_games/registrarCuidador.php", new Response.Listener<String>() {
+
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarCuidador.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(RegistroCuidadorActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
@@ -60,7 +61,6 @@ public class RegistroCuidadorActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(RegistroCuidadorActivity.this, "Usuario no Registrado", Toast.LENGTH_LONG).show();
-
                     }
                 }){
                     @Override

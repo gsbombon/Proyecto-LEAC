@@ -11,12 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistroCuidadorActivity"></activity>
+        <activity android:name=".MedicoActivity"></activity>
+        <activity android:name=".Cuidador_verResultado" />
+        <activity android:name=".medico_verResultado" />
+        <activity android:name=".RegistroCuidadorActivity" />
         <activity android:name=".RegistroMedicoActivity" />
         <activity android:name=".MenuRegistroActivity" />
         <activity android:name=".RegistroPacienteActivity" />
         <activity android:name=".CuidadorActivity" />
-        <activity android:name=".MedicoActivity" />
         <activity android:name=".PacienteActivity" />
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".MainActivity">

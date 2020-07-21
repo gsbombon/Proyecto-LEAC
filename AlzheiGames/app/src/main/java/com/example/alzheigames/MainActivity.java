@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
+                // validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
             }
         });
         btnRegistro.setOnClickListener(
@@ -66,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-
-
                     String result = response.replaceAll("[USUARIO_ROL}{:]","");
                     String rol = result.replace("\"", "");
 
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     }else if(rol.equals("Medico")){
                         Intent medico = new Intent(getApplicationContext(),MedicoActivity.class);
                         startActivity(medico);
-
                     }else{
                         Intent cuidador = new Intent(getApplicationContext(),CuidadorActivity.class);
                         startActivity(cuidador);

@@ -44,7 +44,7 @@ public class RegistroMedicoActivity extends AppCompatActivity {
                 final String telefono=eteTelefono.getText().toString().trim();
                 final String rol="Medico";
                 final String especialidad=eteEspecialidad.getText().toString().trim();
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.102/alzhei_games/registrarMedico.php", new Response.Listener<String>() {
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarMedico.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(RegistroMedicoActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
