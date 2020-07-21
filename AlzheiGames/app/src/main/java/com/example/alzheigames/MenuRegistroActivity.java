@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MenuRegistroActivity extends AppCompatActivity {
-Button btnPacienteReg,btnMedicoReg,btnCuidadorReg;
+Button btnPacienteReg,btnMedicoReg,btnCuidadorReg,btnSalir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ Button btnPacienteReg,btnMedicoReg,btnCuidadorReg;
         btnPacienteReg=findViewById(R.id.opcPaciente);
         btnMedicoReg=findViewById(R.id.opcMedico);
         btnCuidadorReg=findViewById(R.id.opcCuidador);
+        btnSalir=findViewById(R.id.opcSalir);
 
         btnPacienteReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,14 @@ Button btnPacienteReg,btnMedicoReg,btnCuidadorReg;
             @Override
             public void onClick(View view) {
                 Intent menu= new Intent(getApplicationContext(),RegistroCuidadorActivity.class);
+                startActivity(menu);
+
+            }
+        });
+       btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu= new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(menu);
 
             }

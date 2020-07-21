@@ -50,7 +50,7 @@ public class RegistroCuidadorActivity extends AppCompatActivity {
                 final String rol="Cuidador";
                 final String horario=sHorario.getSelectedItem().toString().trim();
 
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarCuidador.php", new Response.Listener<String>() {
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.102/alzhei_games/registrarCuidador.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(RegistroCuidadorActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
