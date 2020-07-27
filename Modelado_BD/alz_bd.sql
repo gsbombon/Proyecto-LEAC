@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2020 a las 05:09:24
--- Versión del servidor: 5.7.14
--- Versión de PHP: 5.6.25
+-- Tiempo de generación: 27-07-2020 a las 21:29:19
+-- Versión del servidor: 10.4.13-MariaDB
+-- Versión de PHP: 7.2.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -48,6 +49,13 @@ CREATE TABLE `juego` (
   `JUEGO_ID` int(11) NOT NULL,
   `JUEGO_NOMBRE` char(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `juego`
+--
+
+INSERT INTO `juego` (`JUEGO_ID`, `JUEGO_NOMBRE`) VALUES
+(1, 'Memorama');
 
 -- --------------------------------------------------------
 
@@ -98,8 +106,26 @@ CREATE TABLE `resultado` (
   `USUARIO_ID` int(11) NOT NULL,
   `JUEGO_ID` int(11) NOT NULL,
   `RESULTADO_PUNTUACION` decimal(10,0) NOT NULL,
-  `RESULTADO_FECHA` date NOT NULL
+  `RESULTADO_FECHA` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `resultado`
+--
+
+INSERT INTO `resultado` (`RESULTADO_ID`, `USUARIO_ID`, `JUEGO_ID`, `RESULTADO_PUNTUACION`, `RESULTADO_FECHA`) VALUES
+(9, 1, 1, '12', '2020-07-27 05:04:21'),
+(10, 1, 1, '0', '2020-07-27 05:21:16'),
+(11, 1, 1, '0', '2020-07-27 05:25:13'),
+(12, 1, 1, '0', '2020-07-27 05:31:45'),
+(13, 1, 1, '6', '2020-07-27 05:33:30'),
+(14, 1, 1, '33', '2020-07-27 05:37:42'),
+(15, 1, 1, '33', '2020-07-27 06:04:50'),
+(16, 1, 1, '0', '2020-07-27 18:15:50'),
+(17, 1, 1, '0', '2020-07-27 18:21:44'),
+(18, 1, 1, '0', '2020-07-27 18:24:24'),
+(19, 1, 1, '50', '2020-07-27 18:28:00'),
+(20, 1, 1, '40', '2020-07-27 18:44:53');
 
 -- --------------------------------------------------------
 
@@ -177,17 +203,20 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `JUEGO_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `JUEGO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `RESULTADO_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RESULTADO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -218,6 +247,7 @@ ALTER TABLE `paciente`
 ALTER TABLE `resultado`
   ADD CONSTRAINT `FK_RESULTADO` FOREIGN KEY (`USUARIO_ID`) REFERENCES `paciente` (`USUARIO_ID`),
   ADD CONSTRAINT `FK_RESULTADO2` FOREIGN KEY (`JUEGO_ID`) REFERENCES `juego` (`JUEGO_ID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
