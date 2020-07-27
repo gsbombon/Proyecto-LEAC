@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CuidadorActivity">
+    tools:context=".juegoAdivina">
 
     <LinearLayout
         android:layout_width="434dp"
         android:layout_height="803dp"
-        android:background="#FDEBD0"
+        android:background="#FFF1F1"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,40 +19,42 @@
         app:layout_constraintVertical_bias="0.333">
 
         <ImageView
-            android:id="@+id/imagen"
-            android:layout_width="129dp"
-            android:layout_height="139dp"
-            app:srcCompat="@drawable/icon_cuidador" />
+            android:layout_width="194dp"
+            android:layout_height="181dp"
+            app:srcCompat="@drawable/juegar" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Bienvenido Cuidador"
-            android:textSize="36sp"
+            android:text="ADIVINA"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnResultado"
-            android:layout_width="412dp"
-            android:layout_height="176dp"
+            android:id="@+id/btnJugar"
+            android:layout_width="293dp"
+            android:layout_height="78dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/result2"
-            android:textSize="36sp" />
+            android:background="@color/colorAccent"
+            android:text="JUGAR"
+            android:textAlignment="center"
+            android:textSize="50sp" />
 
         <Button
-            android:id="@+id/btnConfirmar"
-            android:layout_width="412dp"
-            android:layout_height="176dp"
+            android:id="@+id/btnRespuestas"
+            android:layout_width="293dp"
+            android:layout_height="78dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/asistencia"
-            android:textSize="36sp" />
-
+            android:background="@color/colorAccent"
+            android:text="RESPUESTAS"
+            android:textAlignment="center"
+            android:textSize="46sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

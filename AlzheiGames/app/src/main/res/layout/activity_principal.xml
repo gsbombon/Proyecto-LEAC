@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imagen"
             android:layout_width="234dp"
             android:layout_height="321dp"
             app:srcCompat="@drawable/icon_user" />

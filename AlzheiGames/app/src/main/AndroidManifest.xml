@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AsistenciaActivity"></activity>
-        <activity android:name=".MedicoActivity"></activity>
+        <activity android:name=".adivinaRespuestas"></activity>
+        <activity android:name=".juegoAdivinaEJ" />
+        <activity android:name=".juegoAdivina" />
+        <activity android:name=".AsistenciaActivity" />
+        <activity android:name=".MedicoActivity" />
         <activity android:name=".medico_verResultado" />
         <activity android:name=".Cuidador_verResultado" />
         <activity android:name=".MenuJuegosActivity" />
