@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".adivinaRespuestas"></activity>
+        <activity android:name=".MemoramaMainActivity"></activity>
+        <activity android:name=".adivinaRespuestas" />
         <activity android:name=".juegoAdivinaEJ" />
         <activity android:name=".juegoAdivina" />
         <activity android:name=".AsistenciaActivity" />

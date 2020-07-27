@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
-                validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
+                //validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
             }
         });
         btnRegistro.setOnClickListener(
@@ -67,13 +67,24 @@ public class MainActivity extends AppCompatActivity {
 
             public void onResponse(String response) {
                 if (!response.isEmpty()){
-                    String result = response.replaceAll("[USUARIO_ROL}{:]","");
+
+                    String cadena[]=response.split(",");
+                    //id
+                    String idUser=cadena[0];
+                    String idResult = idUser.replaceAll("[USUARIO_ID}{:]","");
+                    String id = idResult.replace("\"", "");
+                    //rol
+                    String rolUser=cadena[1];
+
+                    String result = rolUser.replaceAll("[USUARIO_ROL}{:]","");
                     String rol = result.replace("\"", "");
 
-                    //Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, id, Toast.LENGTH_LONG).show();
                     if(rol.equals("Paciente")) {
                         Intent paciente = new Intent(getApplicationContext(),PacienteActivity.class);
+                        paciente.putExtra("idUser",id);
                         startActivity(paciente);
+
                     }else if(rol.equals("Medico")){
                         Intent medico = new Intent(getApplicationContext(),MedicoActivity.class);
                         startActivity(medico);

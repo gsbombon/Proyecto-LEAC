@@ -24,6 +24,8 @@ public class PacienteActivity extends AppCompatActivity {
 
     public void juegos_btn(View view){
         Intent i = new Intent(this,MenuJuegosActivity.class);
+        String idUser=getIntent().getStringExtra("idUser");
+        i.putExtra("idUser",idUser);
         startActivity(i);
     }
 
