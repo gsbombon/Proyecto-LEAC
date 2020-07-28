@@ -6,7 +6,7 @@ $user_password=$_POST['password'];
 //$usu_usuario="aroncal@gmail.com";
 //$usu_password="12345678";
 
-$sentencia=$conexion->prepare("SELECT USUARIO_ROL FROM usuario WHERE USUARIO_EMAIL=? AND USUARIO_PASSWORD=?");
+$sentencia=$conexion->prepare("SELECT USUARIO_ID,USUARIO_ROL FROM usuario WHERE USUARIO_EMAIL=? AND USUARIO_PASSWORD=?");
 $sentencia->bind_param('ss',$user_usuario,$user_password);
 $sentencia->execute();
 
