@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
-                //validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                //validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
             }
         });
         btnRegistro.setOnClickListener(
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                     String id = idResult.replace("\"", "");
                     //rol
                     String rolUser=cadena[1];
-
                     String result = rolUser.replaceAll("[USUARIO_ROL}{:]","");
                     String rol = result.replace("\"", "");
 
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "ERROR CONEXION DE BASE DE DATOS", Toast.LENGTH_LONG).show();
             }
         }){
             @Override

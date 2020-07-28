@@ -22,7 +22,6 @@ public class MenuJuegosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String idUser=getIntent().getStringExtra("idUser");
-
                 Intent memor = new Intent(MenuJuegosActivity.this, MemoramaMainActivity.class);
                 memor.putExtra("idUser",idUser);
                 startActivity(memor);
@@ -32,7 +31,9 @@ public class MenuJuegosActivity extends AppCompatActivity {
         irAdivina.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String idUser=getIntent().getStringExtra("idUser");
                 Intent irJugarAdivina = new Intent(MenuJuegosActivity.this, juegoAdivina.class);
+                irJugarAdivina.putExtra("idUser",idUser);
                 startActivity(irJugarAdivina);
             }
         });

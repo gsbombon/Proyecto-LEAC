@@ -15,6 +15,7 @@ public class juegoAdivina extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_adivina);
+        final String idUser=getIntent().getStringExtra("idUser");
         btnJugar = (Button)findViewById(R.id.btnJugar);
         btnRespuestas = (Button)findViewById(R.id.btnRespuestas);
 
@@ -22,6 +23,7 @@ public class juegoAdivina extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent pagina2 = new Intent(juegoAdivina.this,juegoAdivinaEJ.class);
+                pagina2.putExtra("idUser",idUser);
                 startActivity(pagina2);
             }
         });

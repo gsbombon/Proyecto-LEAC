@@ -12,8 +12,8 @@
       android:background="#DCFBD7">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="756dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
       <LinearLayout
           android:layout_width="match_parent"
@@ -65,7 +65,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textPrueba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PROGRESO"
@@ -75,31 +75,21 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Juegos Realizados"
-            android:textSize="24sp" />
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="155dp" />
-
-        <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Puntos Obtenidos"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textPuntaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="- - - - -"
             android:textAlignment="center"
             android:textColor="#1849FD"
-            android:textSize="30sp" />
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -111,67 +101,16 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="423dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/dialogPreferredPadding"
-            android:text="TITULO JUEGO"
-            android:textAlignment="center"
-            android:textColor="#2E2600"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView10"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_recycler_view"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/dialogPreferredPadding"
-            android:text="Numero Intentos"
-            android:textSize="24sp" />
+            android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/textView11"
+        <ListView
+            android:id="@+id/listaResultados"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="----"
-            android:textAlignment="center"
-            android:textColor="#0469D8"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/dialogPreferredPadding"
-            android:text="Puntos Alcanzados"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="----"
-            android:textAlignment="center"
-            android:textColor="#0469D8"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/dialogPreferredPadding"
-            android:text="Fecha Registro"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:text="----"
-            android:textAlignment="center"
-            android:textColor="#0469D8"
-            android:textSize="24sp" />
+            android:layout_height="match_parent" />
 
       </LinearLayout>
 

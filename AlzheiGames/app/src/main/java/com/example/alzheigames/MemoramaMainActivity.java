@@ -367,7 +367,6 @@ public class MemoramaMainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Toast.makeText(MemoramaMainActivity.this, "Guarado", Toast.LENGTH_LONG).show();
-
                 }
             }, new Response.ErrorListener() {
                 @Override

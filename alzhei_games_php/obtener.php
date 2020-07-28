@@ -1,8 +1,4 @@
 <?php
-
-
-?>
-<?php
     class Conexion {
         protected $dblink;
                 
@@ -17,7 +13,8 @@
 		}
 
 		
-	}
+    }
+    
 	class Usuario extends Conexion{
         public function listar(){
             $sql = "SELECT USUARIO_NOMBRE FROM usuario WHERE USUARIO_ROL='Cuidador'";
@@ -31,7 +28,5 @@
     $respuesta = array(
         "usuario"=>$resultado
     );
-    echo json_encode($respuesta);
-	
-	
+    echo json_encode($respuesta);	
 ?>
