@@ -10,15 +10,15 @@ import android.widget.ImageView;
 
 public class MenuJuegosActivity extends AppCompatActivity {
 
-    Button irAdivina;
+    Button irAdivina,irMemorama,irRompecabeza;
     ImageView memorama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_juegos);
-        memorama = (ImageView) findViewById(R.id.memorama);
-        memorama.setOnClickListener(new View.OnClickListener() {
+        irMemorama = (Button) findViewById(R.id.btnMemorama);
+        irMemorama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String idUser=getIntent().getStringExtra("idUser");
@@ -37,6 +37,7 @@ public class MenuJuegosActivity extends AppCompatActivity {
                 startActivity(irJugarAdivina);
             }
         });
+
     }
 
 

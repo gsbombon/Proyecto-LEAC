@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
-                validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
+                //validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
             }
         });
         btnRegistro.setOnClickListener(
