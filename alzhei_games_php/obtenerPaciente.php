@@ -11,12 +11,13 @@
             $this->dblink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->dblink->exec("SET NAMES utf8");
 		}
-
-		
-	}
+    }
+    
 	class Usuario extends Conexion{
         public function listar(){
-            $sql = "SELECT USUARIO_NOMBRE FROM usuario WHERE USUARIO_ROL='Medico'";
+            $sql = "SELECT u.USUARIO_NOMBRE
+                    FROM usuario u,paciente p
+                    WHERE p.MED_USUARIO_ID='2' AND u.USUARIO_ID=p.USUARIO_ID;";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();            
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -24,9 +25,7 @@
 	}
 	$objFruta = new Usuario();
     $resultado = $objFruta->listar();
-    $respuesta = array(
-        "usuario"=>$resultado
-    );
+    $respuesta = array("usuario"=>$resultado);
     echo json_encode($respuesta);
 	
 	
