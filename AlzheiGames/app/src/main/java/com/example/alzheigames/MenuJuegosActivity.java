@@ -38,6 +38,17 @@ public class MenuJuegosActivity extends AppCompatActivity {
             }
         });
 
+        irRompecabeza = (Button)findViewById(R.id.btnRompeCa);
+        irRompecabeza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idUser=getIntent().getStringExtra("idUser");
+                Intent irJugarRompeCa = new Intent(MenuJuegosActivity.this, RompecabezasActivity.class);
+                irJugarRompeCa.putExtra("idUser",idUser);
+                startActivity(irJugarRompeCa);
+            }
+        });
+
     }
 
 
