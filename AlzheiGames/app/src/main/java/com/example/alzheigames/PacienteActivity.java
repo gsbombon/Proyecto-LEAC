@@ -33,4 +33,8 @@ public class PacienteActivity extends AppCompatActivity {
         Intent i = new Intent(this,AsistenciaActivity.class);
         startActivity(i);
     }
+    public void salir_btn(View view){
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
 }

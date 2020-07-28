@@ -34,6 +34,8 @@ public class juegoAdivinaEJ extends AppCompatActivity {
     int intPunto = 0;
     int intVidas = 3;
     int numGenerado = 0;
+    //public static  String URL="http://192.168.100.108/alzhei_games/registrarAdivina.php";
+    public static  String URL="http://192.168.0.104/alzhei_games/registrarAdivina.php";
 
 
     String[] lugares_nombres = {"balcon","baño","cocina","comedor","dormitorio","estudio","garage","jardin","piscina","sala"};
@@ -90,7 +92,7 @@ public class juegoAdivinaEJ extends AppCompatActivity {
     public void agregarPuntajeDB(){
         final String puntos= String.valueOf(intPunto);
         final String idUser=getIntent().getStringExtra("idUser");
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarAdivina.php", new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(juegoAdivinaEJ.this, "Guardado", Toast.LENGTH_LONG).show();

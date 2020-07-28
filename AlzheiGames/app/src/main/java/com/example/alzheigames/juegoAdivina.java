@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class juegoAdivina extends AppCompatActivity {
 
-    Button btnJugar,btnRespuestas;
+    Button btnJugar,btnRespuestas,btnSalir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class juegoAdivina extends AppCompatActivity {
         final String idUser=getIntent().getStringExtra("idUser");
         btnJugar = (Button)findViewById(R.id.btnJugar);
         btnRespuestas = (Button)findViewById(R.id.btnRespuestas);
+        btnSalir = (Button)findViewById(R.id.btnSalirAdv);
 
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,13 @@ public class juegoAdivina extends AppCompatActivity {
             public void onClick(View view) {
                 Intent pagina3 = new Intent(juegoAdivina.this,adivinaRespuestas.class);
                 startActivity(pagina3);
+            }
+        });
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu = new Intent(juegoAdivina.this,MenuJuegosActivity.class);
+                startActivity(menu);
             }
         });
     }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class MenuJuegosActivity extends AppCompatActivity {
 
-    Button irAdivina,irMemorama,irRompecabeza;
+    Button irAdivina,irMemorama,irRompecabeza,btnMenuPrin;
     ImageView memorama;
 
     @Override
@@ -48,6 +48,17 @@ public class MenuJuegosActivity extends AppCompatActivity {
                 startActivity(irJugarRompeCa);
             }
         });
+        btnMenuPrin=(Button)findViewById(R.id.btnMenuPrincipal);
+        btnMenuPrin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idUser=getIntent().getStringExtra("idUser");
+                Intent irMenuPrinc = new Intent(MenuJuegosActivity.this, PacienteActivity.class);
+                irMenuPrinc.putExtra("idUser",idUser);
+                startActivity(irMenuPrinc);
+            }
+        });
+
 
     }
 

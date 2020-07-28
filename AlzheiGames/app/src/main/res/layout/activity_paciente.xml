@@ -88,6 +88,44 @@
 
             </androidx.cardview.widget.CardView>
         </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="40px"
+            android:paddingBottom="40px">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#AFBCFF"
+                app:cardCornerRadius="13dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imagenCerrar"
+                        android:layout_width="150px"
+                        android:layout_height="100px"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/cerrar" />
+
+                    <Button
+                        android:id="@+id/cerrarSesson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#004AA5"
+                        android:onClick="salir_btn"
+                        android:text="@string/btn_salir" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </TableRow>
 
     </TableLayout>
 

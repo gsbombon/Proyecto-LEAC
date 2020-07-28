@@ -5,4 +5,5 @@
     <string name="todo">TODO</string>
     <string name="btn_juego">Juegos</string>
     <string name="btn_asistencia">Teleasistencia</string>
+    <string name="btn_salir">Cerrar Sesión</string>
 </resources>

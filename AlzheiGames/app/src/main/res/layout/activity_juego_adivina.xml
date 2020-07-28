@@ -20,7 +20,7 @@
 
         <ImageView
             android:layout_width="194dp"
-            android:layout_height="181dp"
+            android:layout_height="100dp"
             app:srcCompat="@drawable/juegar" />
 
         <TextView
@@ -35,26 +35,37 @@
         <Button
             android:id="@+id/btnJugar"
             android:layout_width="293dp"
-            android:layout_height="78dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:background="@color/colorAccent"
             android:text="JUGAR"
             android:textAlignment="center"
-            android:textSize="50sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/btnRespuestas"
             android:layout_width="293dp"
-            android:layout_height="78dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:background="@color/colorAccent"
             android:text="RESPUESTAS"
             android:textAlignment="center"
-            android:textSize="46sp" />
+            android:textSize="40sp" />
+        <Button
+            android:id="@+id/btnSalirAdv"
+            android:layout_width="293dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorAccent"
+            android:text="Salir"
+            android:textAlignment="center"
+            android:textSize="40sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
