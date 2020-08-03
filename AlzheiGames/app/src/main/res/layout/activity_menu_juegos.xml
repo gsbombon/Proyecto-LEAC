@@ -77,7 +77,7 @@
                         android:id="@+id/imageView3"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        app:srcCompat="@drawable/adivinanzalogo" />
+                        app:srcCompat="@drawable/adivinanza_logo" />
 
                     <TextView
                         android:layout_width="wrap_content"
