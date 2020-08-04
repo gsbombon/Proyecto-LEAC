@@ -25,7 +25,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="100dp"
         android:text="Aciertos: 0"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="#000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
         android:layout_marginEnd="110dp"
         android:text="Desaciertos: 0"
         android:textColor="#000"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
