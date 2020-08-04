@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RompecabezasActivity"></activity>
+        <activity android:name=".JuegoMemoriaActivity"></activity>
+        <activity android:name=".RompecabezasActivity" />
         <activity android:name=".MemoramaMainActivity" />
         <activity android:name=".adivinaRespuestas" />
         <activity android:name=".juegoAdivinaEJ" />

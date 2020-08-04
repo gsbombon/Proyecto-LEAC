@@ -43,7 +43,7 @@ public class MenuJuegosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String idUser=getIntent().getStringExtra("idUser");
-                Intent irJugarRompeCa = new Intent(MenuJuegosActivity.this, RompecabezasActivity.class);
+                Intent irJugarRompeCa = new Intent(MenuJuegosActivity.this, JuegoMemoriaActivity.class);
                 irJugarRompeCa.putExtra("idUser",idUser);
                 startActivity(irJugarRompeCa);
             }
