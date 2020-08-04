@@ -73,7 +73,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                 final String cuidador=spinner.getSelectedItem().toString().trim();
                 final String medico=spinnerMedico.getSelectedItem().toString().trim();
                 final String grado=sGrado.getSelectedItem().toString().trim();
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
+                //StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(RegistroPacienteActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
@@ -109,7 +110,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     }
     public void listarCuidador(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtener.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtener.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.118/alzhei_games/obtener.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -139,8 +141,11 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     }
 
     public void listarMedico(){
+
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerMedico.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerMedico.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.118/alzhei_games/obtenerMedico.php",
+
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
