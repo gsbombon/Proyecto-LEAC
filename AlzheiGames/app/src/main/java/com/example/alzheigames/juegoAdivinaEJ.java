@@ -34,8 +34,8 @@ public class juegoAdivinaEJ extends AppCompatActivity {
     int intPunto = 0;
     int intVidas = 3;
     int numGenerado = 0;
-    //public static  String URL="http://192.168.100.108/alzhei_games/registrarAdivina.php";
-    public static  String URL="http://192.168.0.104/alzhei_games/registrarAdivina.php";
+    public static  String URL="http://192.168.100.108/alzhei_games/registrarAdivina.php";
+    //public static  String URL="http://192.168.0.104/alzhei_games/registrarAdivina.php";
 
 
     String[] lugares_nombres = {"balcon","baño","cocina","comedor","dormitorio","estudio","garage","jardin","piscina","sala"};
