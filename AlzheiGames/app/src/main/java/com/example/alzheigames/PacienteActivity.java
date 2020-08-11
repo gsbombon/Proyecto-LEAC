@@ -30,7 +30,7 @@ public class PacienteActivity extends AppCompatActivity {
     }
 
     public void teleasistencia_btn(View view){
-        Intent i = new Intent(this,AsistenciaActivity.class);
+        Intent i = new Intent(this,MenuTeleasistencia.class);
         startActivity(i);
     }
     public void salir_btn(View view){

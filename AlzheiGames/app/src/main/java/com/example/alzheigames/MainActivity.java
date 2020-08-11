@@ -67,31 +67,35 @@ public class MainActivity extends AppCompatActivity {
 
             public void onResponse(String response) {
                 if (!response.isEmpty()){
+                    try {
+                        String cadena[] = response.split(",");
+                        //id
+                        String idUser = cadena[0];
+                        String idResult = idUser.replaceAll("[USUARIO_ID}{:]", "");
+                        String id = idResult.replace("\"", "");
+                        //rold
+                        String rolUser = cadena[1];
+                        String result = rolUser.replaceAll("[USUARIO_ROL}{:]", "");
+                        String rol = result.replace("\"", "");
 
-                    String cadena[]=response.split(",");
-                    //id
-                    String idUser=cadena[0];
-                    String idResult = idUser.replaceAll("[USUARIO_ID}{:]","");
-                    String id = idResult.replace("\"", "");
-                    //rol
-                    String rolUser=cadena[1];
-                    String result = rolUser.replaceAll("[USUARIO_ROL}{:]","");
-                    String rol = result.replace("\"", "");
+                        Toast.makeText(MainActivity.this, id, Toast.LENGTH_LONG).show();
+                        if (rol.equals("Paciente")) {
+                            Intent paciente = new Intent(getApplicationContext(), PacienteActivity.class);
+                            paciente.putExtra("idUser", id);
+                            startActivity(paciente);
 
-                    Toast.makeText(MainActivity.this, id, Toast.LENGTH_LONG).show();
-                    if(rol.equals("Paciente")) {
-                        Intent paciente = new Intent(getApplicationContext(),PacienteActivity.class);
-                        paciente.putExtra("idUser",id);
-                        startActivity(paciente);
-
-                    }else if(rol.equals("Medico")){
-                        Intent medico = new Intent(getApplicationContext(),MedicoActivity.class);
-                        startActivity(medico);
-                    }else{
-                        Intent cuidador = new Intent(getApplicationContext(),CuidadorActivity.class);
-                        startActivity(cuidador);
-                       // Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
+                        } else if (rol.equals("Medico")) {
+                            Intent medico = new Intent(getApplicationContext(), MedicoActivity.class);
+                            startActivity(medico);
+                        } else if (rol.equals("Cuidador")) {
+                            Intent cuidador = new Intent(getApplicationContext(), CuidadorActivity.class);
+                            startActivity(cuidador);
+                            // Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
+                        }
+                    }catch(Exception ex){
+                        Toast.makeText(MainActivity.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
                     }
+
                 } else {
                     Toast.makeText(MainActivity.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
                 }
@@ -113,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-
     }
 
 }

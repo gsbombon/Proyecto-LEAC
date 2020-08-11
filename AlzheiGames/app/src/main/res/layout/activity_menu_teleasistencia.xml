@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D0D3D4"
+    tools:context=".MenuTeleasistencia">
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical">
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="40px"
+            android:paddingBottom="40px">
+            <TextView
+                android:id="@+id/text_view_id"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="TELEASISTENCIA"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="40px"
+            android:paddingBottom="40px">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#AFBCFF"
+                app:cardCornerRadius="13dp">
+
+                <LinearLayout
+                    android:layout_width="328dp"
+                    android:layout_height="150dp"
+                    android:background="#F2D7D5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/idEmergencia"
+                        android:layout_width="117dp"
+                        android:layout_height="76dp"
+                        app:srcCompat="@drawable/emergencia" />
+
+                    <Button
+                        android:id="@+id/btnEmergencia"
+                        android:layout_width="298dp"
+                        android:layout_height="70dp"
+                        android:backgroundTint="#E31E1E"
+                        android:onClick="emerge_btn"
+                        android:text="@string/btn_emergencia"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="40px"
+            android:paddingBottom="40px">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#AFBCFF"
+                app:cardCornerRadius="13dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#2200ACC1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imagen"
+                        android:layout_width="71dp"
+                        android:layout_height="112dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/mensajeria" />
+
+                    <Button
+                        android:id="@+id/asistencia"
+                        android:layout_width="298dp"
+                        android:layout_height="70dp"
+                        android:backgroundTint="#004AA5"
+                        android:onClick="btn_mensajeria"
+                        android:text="@string/btn_mensajeria"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="40px"
+            android:paddingBottom="40px">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#AFBCFF"
+                app:cardCornerRadius="13dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#48C9B0 "
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imagenCerrar"
+                        android:layout_width="77dp"
+                        android:layout_height="83dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/cerrar" />
+
+                    <Button
+                        android:id="@+id/btnSalirTele"
+                        android:layout_width="298dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#1E8449"
+                        android:onClick="btn_salirTele"
+                        android:text="@string/btn_salirTele"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </TableRow>
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

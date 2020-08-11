@@ -6,4 +6,7 @@
     <string name="btn_juego">Juegos</string>
     <string name="btn_asistencia">Teleasistencia</string>
     <string name="btn_salir">Cerrar Sesión</string>
+    <string name="btn_emergencia">Emergencia</string>
+    <string name="btn_mensajeria">Mensajeria</string>
+    <string name="btn_salirTele">Salir</string>
 </resources>

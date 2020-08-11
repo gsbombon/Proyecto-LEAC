@@ -362,8 +362,8 @@ public class MemoramaMainActivity extends AppCompatActivity {
             final String puntJuego=String.valueOf(puntTotal);
             final String idUser=getIntent().getStringExtra("idUser");
 
-            //StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
+            StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
+          //  StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.118/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Toast.makeText(MemoramaMainActivity.this, "Guarado", Toast.LENGTH_LONG).show();
