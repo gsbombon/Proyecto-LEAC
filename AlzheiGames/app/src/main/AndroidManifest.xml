@@ -3,10 +3,10 @@
     package="com.example.alzheigames">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".emergenciaActivity"></activity>
+        <activity android:name=".Chat"></activity>
+        <activity android:name=".emergenciaActivity" />
         <activity android:name=".MenuTeleasistencia" />
         <activity android:name=".JuegoMemoriaActivity" />
         <activity android:name=".RompecabezasActivity" />
