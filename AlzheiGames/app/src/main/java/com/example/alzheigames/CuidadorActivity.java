@@ -24,7 +24,6 @@ public class CuidadorActivity extends AppCompatActivity {
                 startActivity(verResultado);
             }
         });
-
         btnTeleasistencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -90,7 +90,6 @@ public class Chat extends AppCompatActivity {
                 return parametros;
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
@@ -100,7 +99,6 @@ public class Chat extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MENSAJES,
                 new Response.Listener<String>() {
-
                     @Override
                     public void onResponse(String response) {
                         //Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
@@ -108,18 +106,15 @@ public class Chat extends AppCompatActivity {
                         try{
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("mensajes");
-
                             for(int i = 0 ; i < jsonArray.length() ; i++) {
                                 JSONObject objeto = jsonArray.getJSONObject(i);
                                 listaMensajes.add(objeto.getString("mensaje"));
                             }
                             adaptador = new ArrayAdapter<String>(Chat.this,android.R.layout.simple_list_item_1, listaMensajes);
                             lvMensajes.setAdapter(adaptador);
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -130,9 +125,7 @@ public class Chat extends AppCompatActivity {
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-
                 // En este metodo se hace el envio de valores de la aplicacion al servidor
-
                 Map<String, String> parametros = new Hashtable<String, String>();
                 parametros.put("accion", "");
                 parametros.put("mensaje", etMensaje.getText().toString());
