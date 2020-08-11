@@ -80,7 +80,8 @@ public class medico_verResultado extends AppCompatActivity {
 
     public void listarPPP(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerPaciente.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerPaciente.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerPaciente.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -44,7 +44,7 @@
             android:textSize="36sp" />
 
         <Button
-            android:id="@+id/btnConfirmar"
+            android:id="@+id/btnTeleasistencia"
             android:layout_width="412dp"
             android:layout_height="176dp"
             android:layout_marginLeft="15dp"

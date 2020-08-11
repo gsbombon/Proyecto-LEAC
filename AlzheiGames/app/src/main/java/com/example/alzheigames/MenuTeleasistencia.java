@@ -22,7 +22,7 @@ public class MenuTeleasistencia extends AppCompatActivity {
         startActivity(i);
     }
     public void btn_mensajeria(View view){
-        Intent i = new Intent(this,emergenciaActivity.class);
+        Intent i = new Intent(this,Chat.class);
         startActivity(i);
     }
 }

@@ -19,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class juegoAdivinaEJ extends AppCompatActivity {
     int intPunto = 0;
     int intVidas = 3;
     int numGenerado = 0;
-    public static  String URL="http://192.168.100.108/alzhei_games/registrarAdivina.php";
+    public static  String URL="http://192.168.100.83/alzhei_games/registrarAdivina.php";
     //public static  String URL="http://192.168.0.104/alzhei_games/registrarAdivina.php";
 
 
@@ -50,7 +49,7 @@ public class juegoAdivinaEJ extends AppCompatActivity {
         contador = (TextView)findViewById(R.id.cuenta);
         imagen = (ImageView)findViewById(R.id.imagen);
         textedit = (EditText)findViewById(R.id.palabra);
-        btnConfirmar = (Button)findViewById(R.id.btnConfirmar);
+        btnConfirmar = (Button)findViewById(R.id.btnTeleasistencia);
         txtIncorrecto = (TextView)findViewById(R.id.txtIncorrecto);
         txtCorrecto = (TextView)findViewById(R.id.txtCorrecto);
 

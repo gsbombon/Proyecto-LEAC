@@ -35,8 +35,8 @@ public class Chat extends AppCompatActivity {
     ArrayAdapter<String> adaptador;
     ArrayList<String> listaMensajes;
 
-    String URL_MENSAJES = "http://192.168.0.7:8080/alzhei_games/obtenerMensajes.php";
-
+    //String URL_MENSAJES = "http://192.168.0.7:8080/alzhei_games/obtenerMensajes.php";
+    String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,6 @@ public class Chat extends AppCompatActivity {
     public void enviarMensaje() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MENSAJES,
                 new Response.Listener<String>() {
-
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(Chat.this, "Se envio exitosamente el mensaje", Toast.LENGTH_LONG).show();
@@ -85,13 +84,9 @@ public class Chat extends AppCompatActivity {
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-
-                // En este metodo se hace el envio de valores de la aplicacion al servidor
-
                 Map<String, String> parametros = new Hashtable<String, String>();
                 parametros.put("accion", "nuevo");
                 parametros.put("mensaje", etMensaje.getText().toString());
-
                 return parametros;
             }
         };
@@ -116,10 +111,8 @@ public class Chat extends AppCompatActivity {
 
                             for(int i = 0 ; i < jsonArray.length() ; i++) {
                                 JSONObject objeto = jsonArray.getJSONObject(i);
-
                                 listaMensajes.add(objeto.getString("mensaje"));
                             }
-
                             adaptador = new ArrayAdapter<String>(Chat.this,android.R.layout.simple_list_item_1, listaMensajes);
                             lvMensajes.setAdapter(adaptador);
 
