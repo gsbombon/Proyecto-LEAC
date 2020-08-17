@@ -118,11 +118,11 @@ public class MainActivity extends AppCompatActivity {
                             // Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
                         }
                     }catch(Exception ex){
-                        Toast.makeText(MainActivity.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Correo o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                     }
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Email or Password Invalid", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Correo o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

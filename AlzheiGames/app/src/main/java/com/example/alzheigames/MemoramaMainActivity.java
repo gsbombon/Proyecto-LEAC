@@ -362,16 +362,16 @@ public class MemoramaMainActivity extends AppCompatActivity {
             final String puntJuego=String.valueOf(puntTotal);
             final String idUser=getIntent().getStringExtra("idUser");
 
-          //  StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.83/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
+           StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.102/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
+           // StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.83/alzhei_games/registrarMemorama.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(MemoramaMainActivity.this, "Guarado", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(MemoramaMainActivity.this, "Guarado", Toast.LENGTH_LONG).show();
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(MemoramaMainActivity.this, "No Guardado", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(MemoramaMainActivity.this, "No Guardado", Toast.LENGTH_LONG).show();
 
                 }
             }){
@@ -393,16 +393,16 @@ public class MemoramaMainActivity extends AppCompatActivity {
 
             AlertDialog.Builder alertDialogBulider=new AlertDialog.Builder(MemoramaMainActivity.this);
             alertDialogBulider
-                    .setMessage("Game Over! \nAciertos: "+playerPoint+"\nDesaciertos: "+cpuPoints)
+                    .setMessage("JUEGO TERMINADO! \nAciertos: "+playerPoint+"\nDesaciertos: "+cpuPoints)
                     .setCancelable(false)
-                    .setPositiveButton("NEW", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("NUEVO JUEGO", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent intent =new Intent(getApplicationContext(),MemoramaMainActivity.class);
                             startActivity(intent);
                             finish();
                         }
-                    }).setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                    }).setNegativeButton("SALIR", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     finish();
