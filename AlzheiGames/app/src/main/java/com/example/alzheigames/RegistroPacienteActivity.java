@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.DigitsKeyListener;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +31,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistroPacienteActivity extends AppCompatActivity {
     Spinner spinner ;
@@ -38,9 +41,7 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     Button btnReg;
     Spinner sGrado;
     RequestQueue requestQueue;
-
     EditText etUsuario,etemail,etePassword,eteTelefono,edtRol;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,70 +49,101 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_paciente);
 
         cuidador = new ArrayList<>();
-        medico=new ArrayList<>();
-        spinner= (Spinner) findViewById(R.id.spinnerCuiador);
-        spinnerMedico= (Spinner) findViewById(R.id.spinnerMedico);
+        medico = new ArrayList<>();
+        spinner = (Spinner) findViewById(R.id.spinnerCuiador);
+        spinnerMedico = (Spinner) findViewById(R.id.spinnerMedico);
         listarCuidador();
         listarMedico();
         //datos del formulario
-        etUsuario=(EditText)findViewById(R.id.regUsuario);
-        etemail=(EditText)findViewById(R.id.regEmail);
-        etePassword=(EditText)findViewById(R.id.regPassword);
-        eteTelefono=(EditText)findViewById(R.id.regTelefono);
-        btnReg=(Button)findViewById((R.id.btnRegistroPac));
-        String[] Grado = {"Bajo","Medio"};
+        etUsuario = (EditText) findViewById(R.id.regUsuario);
+        etemail = (EditText) findViewById(R.id.regEmail);
+        etePassword = (EditText) findViewById(R.id.regPassword);
+        eteTelefono = (EditText) findViewById(R.id.regTelefono);
+        eteTelefono.setKeyListener(DigitsKeyListener.getInstance("0123456789"));
+        btnReg = (Button) findViewById((R.id.btnRegistroPac));
+        String[] Grado = {"Bajo", "Medio"};
         sGrado = (Spinner) findViewById(R.id.spinnerGrado);
         sGrado.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, Grado));
+
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String usuario=etUsuario.getText().toString().trim();
-                final String email=etemail.getText().toString().trim();
-                final String password=etePassword.getText().toString().trim();
-                final String telefono=eteTelefono.getText().toString().trim();
-                final String rol="Paciente";
-                final String cuidador=spinner.getSelectedItem().toString().trim();
-                final String medico=spinnerMedico.getSelectedItem().toString().trim();
-                final String grado=sGrado.getSelectedItem().toString().trim();
-                //StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.0.104/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
-                StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://192.168.100.83/alzhei_games/registrarPaciente.php", new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(RegistroPacienteActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
-                        Intent menu= new Intent(getApplicationContext(),MenuRegistroActivity.class);
-                        startActivity(menu);
+                etUsuario.setError(null);
+                String usuario = etUsuario.getText().toString();
+                String email= etemail.getText().toString();
+                String password = etePassword.getText().toString();
+                String telefono = eteTelefono.getText().toString();
+                if ("".equals(usuario)) {
+                    etUsuario.setError("Ingrese un usuario");
+                    etUsuario.requestFocus();
+                    return;
+                }else if("".equals(email)){
+                    etemail.setError("Ingrese un correo");
+                    etemail.requestFocus();
+                }else if("".equals(password)){
+                    etePassword.setError("Ingrese una contraseña");
+                    etePassword.requestFocus();
+                }else if("".equals(telefono)){
+                    eteTelefono.setError("Ingrese un telefono celular");
+                    eteTelefono.requestFocus();
+                }else{
+                    if(!validarCorreo(email)) {
+                        etemail.setError("Introduce un correo valido");
+                        etemail.requestFocus();
+                    } else{
+                        registrarPaciente("http://192.168.0.102/alzhei_games/registrarPaciente.php");
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(RegistroPacienteActivity.this, "Usuario no Registrado", Toast.LENGTH_LONG).show();
+                }
 
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams()  {
-                        Map<String,String>parms=new HashMap<String, String>();
-                        parms.put("usuario",usuario);
-                        parms.put("email",email);
-                        parms.put("password",password);
-                        parms.put("telefono",telefono);
-                        parms.put("rol",rol);
-                        parms.put("medico",medico);
-                        parms.put("cuidador",cuidador);
-                        parms.put("grado",grado);
-                        return parms;
-                    }
-                };
-                RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
             }
         });
+    }
+
+    private void registrarPaciente(String URL){
+        final String usuario = etUsuario.getText().toString().trim();
+        final String email = etemail.getText().toString().trim();
+        final String password = etePassword.getText().toString().trim();
+        final String telefono = eteTelefono.getText().toString().trim();
+        final String rol = "Paciente";
+        final String cuidador = spinner.getSelectedItem().toString().trim();
+        final String medico = spinnerMedico.getSelectedItem().toString().trim();
+        final String grado = sGrado.getSelectedItem().toString().trim();
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(RegistroPacienteActivity.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
+                Intent menu = new Intent(getApplicationContext(), MenuRegistroActivity.class);
+                startActivity(menu);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(RegistroPacienteActivity.this, "Usuario no Registrado", Toast.LENGTH_LONG).show();
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> parms = new HashMap<String, String>();
+                parms.put("usuario", usuario);
+                parms.put("email", email);
+                parms.put("password", password);
+                parms.put("telefono", telefono);
+                parms.put("rol", rol);
+                parms.put("medico", medico);
+                parms.put("cuidador", cuidador);
+                parms.put("grado", grado);
+                return parms;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
 
     }
     public void listarCuidador(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtener.php",
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtener.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtener.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtener.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -143,8 +175,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     public void listarMedico(){
 
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerMedico.php",
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerMedico.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtenerMedico.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerMedico.php",
 
                 new Response.Listener<String>() {
                     @Override
@@ -172,6 +204,18 @@ public class RegistroPacienteActivity extends AppCompatActivity {
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
+    }
+    private boolean validarCorreo(String txtEmail){
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pattern.matcher(txtEmail);
+
+        if (mather.find() == true) {
+            return  true;
+        } else {
+            return false;
+        }
     }
 
 

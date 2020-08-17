@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistroPacienteActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -32,8 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
                 android:backgroundTint="@android:color/darker_gray"
-
                 android:ems="10"
                 android:hint="Nombre"
                 android:inputType="textPersonName"
@@ -45,7 +48,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@android:color/darker_gray"
-
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textPersonName"
@@ -64,6 +66,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp" />
+
+
             <EditText
                 android:id="@+id/regTelefono"
                 android:layout_width="match_parent"
@@ -72,9 +76,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@android:color/darker_gray"
-
                 android:ems="10"
                 android:hint="Telefono"
+                android:maxLength="10"
                 android:inputType="text"
                 android:paddingLeft="5dp" />
             <TextView
@@ -159,12 +163,8 @@
                 android:textColor="#FFF"
                 android:textSize="18sp" />
 
-
-
-
-
-
         </LinearLayout>
     </FrameLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

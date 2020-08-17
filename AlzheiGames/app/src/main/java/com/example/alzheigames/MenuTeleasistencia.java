@@ -18,7 +18,7 @@ public class MenuTeleasistencia extends AppCompatActivity {
         startActivity(i);
     }
     public void btn_salirTele(View view){
-        Intent i = new Intent(this,emergenciaActivity.class);
+        Intent i = new Intent(this,PacienteActivity.class);
         startActivity(i);
     }
     public void btn_mensajeria(View view){

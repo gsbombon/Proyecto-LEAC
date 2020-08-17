@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistroMedicoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,6 +38,7 @@
                 android:ems="10"
                 android:hint="Nombre"
                 android:inputType="textPersonName"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
                 android:paddingLeft="5dp" />
             <EditText
                 android:id="@+id/regEmailMed"
@@ -70,20 +74,32 @@
                 android:backgroundTint="@android:color/darker_gray"
                 android:ems="10"
                 android:hint="Telefono"
+
+                android:maxLength="10"
                 android:inputType="text"
                 android:paddingLeft="5dp" />
-            <EditText
-                android:id="@+id/regEspecialidadMed"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:textSize="18dp"
+                android:gravity="left"
                 android:layout_marginTop="10dp"
+                android:text="Especialidad"
+                />
+            <Spinner
+                android:id="@+id/regEspecialidadMed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@android:color/darker_gray"
-                android:ems="10"
-                android:hint="Especialidad"
-                android:inputType="text"
-                android:paddingLeft="5dp" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.434"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView52"
+                app:layout_constraintVertical_bias="0.061" />
             <Button
                 android:id="@+id/btnRegistroMed"
                 android:layout_width="match_parent"
@@ -98,5 +114,5 @@
 
         </LinearLayout>
     </FrameLayout>
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
@@ -41,8 +43,30 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //validarUsuario("http://192.168.0.104/alzhei_games/validar_usuario.php");
-                validarUsuario("http://192.168.100.83/alzhei_games/validar_usuario.php");
+                edtUsuario.setError(null);
+                String email = edtUsuario.getText().toString();
+                String password = edtPassword.getText().toString();
+                if("".equals(email)){
+                    edtUsuario.setError("Introduce un correo");
+                    edtUsuario.requestFocus();
+                    return;
+                }else if("".equals(password)){
+                    edtPassword.setError("Introduce tu contraseña ");
+                    edtPassword.requestFocus();
+                }else if("".equals(password) &&  "".equals(email)){
+                    edtUsuario.setError("Introduce un correo");
+                    edtUsuario.requestFocus();
+                    edtPassword.setError("Introduce tu clave ");
+                    edtPassword.requestFocus();
+                }else {
+                    if(validarCorreo(email)) {
+                        validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
+                        //validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                    }else{
+                        edtUsuario.setError("Introduce un correo valido");
+                        edtUsuario.requestFocus();
+                    }
+                }
             }
         });
         btnRegistro.setOnClickListener(
@@ -116,6 +140,18 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+    private boolean validarCorreo(String txtEmail){
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pattern.matcher(txtEmail);
+
+        if (mather.find() == true) {
+            return  true;
+        } else {
+            return false;
+        }
     }
 
 }

@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MenuJuegosActivity"
     android:background="#F26D50">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -221,4 +224,5 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
