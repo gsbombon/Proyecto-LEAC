@@ -20,6 +20,8 @@ public class MedicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent verResultado = new Intent(MedicoActivity.this, medico_verResultado.class);
+                String idUser=getIntent().getStringExtra("idUser");
+                verResultado.putExtra("idUser",idUser);
                 startActivity(verResultado);
             }
         });

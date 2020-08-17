@@ -50,12 +50,14 @@ public class Cuidador_verResultado extends AppCompatActivity {
         pacientes = new ArrayList<>();
         txtprueba = (TextView)findViewById(R.id.textPrueba);
         listaResult = (ListView)findViewById(R.id.listaResultados);
-        rv = (RecyclerView)findViewById(R.id.my_recycler_view);
+        rv = (RecyclerView)findViewById(R.id.my_recycler_view_1);
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        listarPPP();
+        String idUser=getIntent().getStringExtra("idUser");
+        listarPPP(idUser);
+
         spinnerPac.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -78,10 +80,12 @@ public class Cuidador_verResultado extends AppCompatActivity {
 
     }
 
-    public void listarPPP(){
+    public void listarPPP(String idUser){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.104/alzhei_games/obtenerPaciente.php",
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerPaciente.php",
+        String URL_PACIENTES = "http://192.168.100.83/alzhei_games/obtenerPaciente.php?id="+idUser;
+//      Toast.makeText(medico_verResultado.this, URL_PACIENTES, Toast.LENGTH_LONG).show();
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,URL_PACIENTES,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

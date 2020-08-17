@@ -31,6 +31,8 @@ public class PacienteActivity extends AppCompatActivity {
 
     public void teleasistencia_btn(View view){
         Intent i = new Intent(this,MenuTeleasistencia.class);
+        String idUser=getIntent().getStringExtra("idUser");
+        i.putExtra("idUser",idUser);
         startActivity(i);
     }
     public void salir_btn(View view){

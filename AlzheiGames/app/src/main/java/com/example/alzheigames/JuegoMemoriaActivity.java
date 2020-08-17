@@ -36,7 +36,7 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
 
     String idJUEGO = "3";
 
-    String URL = "http://192.168.0.7:8080/alzhei_games/registrarJuegoMemoria.php";
+    String URL = "http://192.168.100.83/alzhei_games/registrarJuegoMemoria.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

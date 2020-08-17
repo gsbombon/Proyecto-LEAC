@@ -109,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
 
                         } else if (rol.equals("Medico")) {
                             Intent medico = new Intent(getApplicationContext(), MedicoActivity.class);
+                            medico.putExtra("idUser", id);
                             startActivity(medico);
                         } else if (rol.equals("Cuidador")) {
                             Intent cuidador = new Intent(getApplicationContext(), CuidadorActivity.class);
+                            cuidador.putExtra("idUser", id);
                             startActivity(cuidador);
                             // Toast.makeText(MainActivity.this, rol, Toast.LENGTH_LONG).show();
                         }

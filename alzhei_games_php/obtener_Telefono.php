@@ -1,13 +1,21 @@
+
 <?php
 include 'conexion.php';
-$user_usuario=$_POST['usuario'];
-$user_password=$_POST['password'];
+$idPaciente=$_POST['idPaciente'];
+//$idPaciente="1";
+$con=mysqli_connect("localhost","root","123","alz_bd");
+$sql3="SELECT c.USUARIO_ID FROM usuario u, paciente p, cuidador c WHERE u.USUARIO_ID=p.USUARIO_ID AND p.CUI_USUARIO_ID=c.USUARIO_ID AND p.USUARIO_ID='$idPaciente'";
+$res3=mysqli_query($con,$sql3);
 
-$sentencia=$conexion->prepare("SELECT USUARIO_ID,USUARIO_ROL FROM usuario WHERE USUARIO_EMAIL=? AND USUARIO_PASSWORD=?");
-$sentencia->bind_param('ss',$user_usuario,$user_password);
+while($reg=mysqli_fetch_array($res3)){
+$idCuidador= $reg[0];
+}
+
+
+$sentencia=$conexion->prepare("SELECT USUARIO_TELEFONO FROM usuario WHERE usuario.USUARIO_ID=?");
+$sentencia->bind_param('s',$idCuidador);
 $sentencia->execute();
-
-function get_result( $stmt ) {
+function get_result( $stmt) {
     $arrResult = array();
     $stmt->store_result();
     for ( $i = 0; $i < $stmt->num_rows; $i++ ) {
@@ -22,10 +30,13 @@ function get_result( $stmt ) {
     return $arrResult;
 }
 
+
 $resultado = $sentencia->get_result();
+
 if ($fila = $resultado->fetch_assoc()) {
          echo json_encode($fila,JSON_UNESCAPED_UNICODE);     
 }
 $sentencia->close();
 $conexion->close();
+
 ?>
