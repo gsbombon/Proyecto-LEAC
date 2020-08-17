@@ -17,10 +17,18 @@
     
 	class Usuario extends Conexion{
         public function listar(){
-            $idMedico = $_GET['id'];
-            $sql = "SELECT u.USUARIO_NOMBRE
-                    FROM usuario u,paciente p
-                    WHERE p.MED_USUARIO_ID='$idMedico' AND u.USUARIO_ID=p.USUARIO_ID;";
+            include "conexion.php";
+
+            $nombre = $_GET['nomPaciente'];
+            $primeraConsulta = "SELECT USUARIO_ID FROM usuario WHERE USUARIO_NOMBRE = '$nombre';";
+            $sql_resultado = $conexion->query($primeraConsulta);
+            $rows = [];
+            while($row = mysqli_fetch_array($sql_resultado)){
+                $rows[] = $row;
+            }
+            $id=$rows[0][0];
+
+            $sql = "SELECT JUEGO_NOMBRE FROM resultado r ,juego j  WHERE USUARIO_ID='$id' AND r.JUEGO_ID=j.JUEGO_ID GROUP BY JUEGO_NOMBRE;";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();            
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
