@@ -15,6 +15,8 @@ public class MenuTeleasistencia extends AppCompatActivity {
     }
     public void emerge_btn(View view){
         Intent i = new Intent(this,emergenciaActivity.class);
+        String idUser = getIntent().getStringExtra("idUser");
+        i.putExtra("idUser",idUser);
         startActivity(i);
     }
     public void btn_salirTele(View view){

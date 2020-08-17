@@ -27,22 +27,17 @@ import java.util.Hashtable;
 import java.util.Map;
 
 public class Chat extends AppCompatActivity {
-
     EditText etMensaje;
     Button btnEnviar, btnActualizar;
-
     ListView lvMensajes;
     ArrayAdapter<String> adaptador;
     ArrayList<String> listaMensajes;
-
     //String URL_MENSAJES = "http://192.168.0.7:8080/alzhei_games/obtenerMensajes.php";
-    String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
-
+      String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
         etMensaje = findViewById(R.id.etMensaje);
         btnEnviar = findViewById(R.id.btnEnviar);
         btnActualizar = findViewById(R.id.btnActualizar);
@@ -64,7 +59,6 @@ public class Chat extends AppCompatActivity {
             }
         });
     }
-
     public void enviarMensaje() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MENSAJES,
                 new Response.Listener<String>() {

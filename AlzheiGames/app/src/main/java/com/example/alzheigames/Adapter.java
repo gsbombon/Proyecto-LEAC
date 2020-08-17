@@ -1,6 +1,5 @@
 package com.example.alzheigames;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ResultadoViewHolder> {
 
     private List<Resultado> resultadoList;
-
 
     public static class ResultadoViewHolder extends RecyclerView.ViewHolder {
         TextView txtViewNomJuego,txtViewPuntuacion,txtViewFecha;
@@ -31,24 +29,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ResultadoViewHolder> {
         this.resultadoList=resultadoList;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public ResultadoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout,parent,false);
         ResultadoViewHolder holder = new ResultadoViewHolder(v);
-
         return holder;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ResultadoViewHolder holder, int position) {
         holder.txtViewNomJuego.setText(resultadoList.get(position).getJug_nombre());
-        holder.txtViewPuntuacion.setText(resultadoList.get(position).getJug_puntuacion());
-        holder.txtViewFecha.setText(resultadoList.get(position).getJug_fecha());
+        holder.txtViewPuntuacion.setText("Resultado : "+resultadoList.get(position).getJug_puntuacion()+" /100");
+        holder.txtViewFecha.setText("Fecha: "+resultadoList.get(position).getJug_fecha());
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return resultadoList.size();

@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#DCFBD7">
+        android:background="#FDEBD0">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -27,27 +27,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@android:dimen/app_icon_size"
-                    android:text="Seleccione al Paciente"
+                    android:text="Resultados de su Paciente"
                     android:textAlignment="center"
                     android:textColor="#FD510D"
                     android:textSize="30sp"
                     android:textStyle="bold" />
-
-                <Spinner
-                    android:id="@+id/spinnerPPP"
-                    android:layout_width="299dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="?attr/dialogPreferredPadding"
-                    android:padding="?attr/dialogPreferredPadding"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.434"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView52"
-                    app:layout_constraintVertical_bias="0.061" />
 
                 <ImageView
                     android:layout_width="152dp"
@@ -83,7 +67,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textPuntaje"
+                    android:id="@+id/textPuntaje1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="- - - - -"
@@ -102,10 +86,10 @@
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/my_recycler_view"
-                    android:scrollbars="vertical"
+                    android:id="@+id/my_recycler_view_1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
 
                 <ListView
                     android:id="@+id/listaResultados"
