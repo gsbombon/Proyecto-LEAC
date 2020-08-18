@@ -36,7 +36,8 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
 
     String idJUEGO = "3";
 
-    String URL = "http://192.168.100.83/alzhei_games/registrarJuegoMemoria.php";
+    //String URL = "http://192.168.100.83/alzhei_games/registrarJuegoMemoria.php";
+    String URL = "http://192.168.0.4:8080/alzhei_games/registrarJuegoMemoria.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -359,8 +360,8 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(JuegoMemoriaActivity.this, "Guardado", Toast.LENGTH_LONG).show();
-                Intent menu= new Intent(getApplicationContext(),JuegoMemoriaActivity.class);
-                startActivity(menu);
+                //Intent menu= new Intent(getApplicationContext(),JuegoMemoriaActivity.class);
+                //startActivity(menu);
             }
         }, new Response.ErrorListener() {
             @Override

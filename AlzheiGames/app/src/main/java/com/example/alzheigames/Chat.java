@@ -32,8 +32,8 @@ public class Chat extends AppCompatActivity {
     ListView lvMensajes;
     ArrayAdapter<String> adaptador;
     ArrayList<String> listaMensajes;
-    //String URL_MENSAJES = "http://192.168.0.7:8080/alzhei_games/obtenerMensajes.php";
-      String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
+    String URL_MENSAJES = "http://192.168.0.4:8080/alzhei_games/obtenerMensajes.php";
+    //String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
