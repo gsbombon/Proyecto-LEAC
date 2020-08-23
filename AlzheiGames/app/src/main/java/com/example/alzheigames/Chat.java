@@ -107,7 +107,17 @@ public class Chat extends AppCompatActivity {
                             JSONArray jsonArray = jsonObject.getJSONArray("mensajes");
                             for(int i = 0 ; i < jsonArray.length() ; i++) {
                                 JSONObject objeto = jsonArray.getJSONObject(i);
-                                listaMensajes.add(objeto.getString("MENSAJE_TEXTO"));
+                                String fecha=objeto.getString("MENSAJE_FECHA");
+
+                                String emisor=objeto.getString("MENSAJE_EMISOR");
+                                String datos;
+                                if(emisor.equals("Paciente")){
+                                    datos="ENVIADO...\n Fecha: "+fecha+"\n";
+                                }else{
+                                    datos="RECIBIDO...\nFecha:"+fecha+"\n";
+                                }
+                                listaMensajes.add(datos+"\n Mensaje: \n"+objeto.getString("MENSAJE_TEXTO"));
+
                             }
                             adaptador = new ArrayAdapter<String>(Chat.this,android.R.layout.simple_list_item_1, listaMensajes);
                             lvMensajes.setAdapter(adaptador);

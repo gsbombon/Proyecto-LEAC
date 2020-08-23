@@ -21,7 +21,7 @@ $idCuidador= $reg[0];
 
 
 
-        $sql_insert = "INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`) VALUES (NULL, '$mensaje', '$idPaciente', '$idCuidador');";
+        $sql_insert = "INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`, `MENSAJE_FECHA`, `MENSAJE_EMISOR`) VALUES (NULL, '$mensaje', '$idPaciente', '$idCuidador', current_timestamp(), 'Paciente');";
         $query = $mysqli->query($sql_insert);
 
         $sql_consult = "SELECT * FROM mensajes";
@@ -42,7 +42,7 @@ $idCuidador= $reg[0];
 
         
     } else {
-        $sql_consult = "SELECT MENSAJE_TEXTO FROM mensaje WHERE ID_PACIENTE='$idPaciente'";
+        $sql_consult = "SELECT MENSAJE_TEXTO,MENSAJE_EMISOR,MENSAJE_FECHA FROM mensaje WHERE ID_PACIENTE='$idPaciente' ORDER BY MENSAJE_FECHA DESC";
         $query = $mysqli->query($sql_consult);
         
         $data = array();

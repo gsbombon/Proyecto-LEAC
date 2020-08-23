@@ -46,7 +46,7 @@ public class MenuMensajeriaActivity extends AppCompatActivity {
                 String idCui=getIntent().getStringExtra("idUser");
                 String idPac= (String) listaIdPacientes.get(i);
                 Toast.makeText(MenuMensajeriaActivity.this,idPac, Toast.LENGTH_LONG).show();
-                Intent tele = new Intent(MenuMensajeriaActivity.this,Chat.class);
+                Intent tele = new Intent(MenuMensajeriaActivity.this,ChatCuidadorActivity.class);
                 tele.putExtra("idUser",idPac);
                 tele.putExtra("idCui",idCui);
                 startActivity(tele);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-08-2020 a las 04:42:05
+-- Tiempo de generación: 23-08-2020 a las 06:17:43
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.2.32
 
@@ -89,25 +89,19 @@ CREATE TABLE `mensaje` (
   `MENSAJE_ID` int(11) NOT NULL,
   `MENSAJE_TEXTO` varchar(100) CHARACTER SET utf8 NOT NULL,
   `ID_PACIENTE` int(11) NOT NULL,
-  `ID_CUIDADOR` int(11) NOT NULL
+  `ID_CUIDADOR` int(11) NOT NULL,
+  `MENSAJE_FECHA` timestamp NOT NULL DEFAULT current_timestamp(),
+  `MENSAJE_EMISOR` varchar(30) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mensaje`
 --
 
-INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`) VALUES
-(1, 'Hola Amigo', 1, 3),
-(2, 'Hola amigo', 4, 3),
-(6, 'Bien y tu', 4, 3),
-(7, 'jjjjjjjjjjjj', 1, 3),
-(8, 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA COMOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ESTAS ', 1, 3),
-(9, 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA COMOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ESTAS ', 1, 3),
-(10, 'nihola estoy bien', 1, 3),
-(11, 'hola Ramiro mena', 4, 3),
-(12, 'hola Ramiro mena', 4, 3),
-(13, 'hola Ramiro mena', 4, 3),
-(14, 'hola', 11, 3);
+INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`, `MENSAJE_FECHA`, `MENSAJE_EMISOR`) VALUES
+(20, 'hola cuidador', 1, 3, '2020-08-23 04:12:30', 'Paciente'),
+(21, 'hola cuidador estoy bien ', 1, 3, '2020-08-23 04:12:48', 'Paciente'),
+(22, 'que tal ', 4, 3, '2020-08-23 04:14:22', 'Cuidador');
 
 -- --------------------------------------------------------
 
@@ -129,7 +123,6 @@ CREATE TABLE `paciente` (
 INSERT INTO `paciente` (`USUARIO_ID`, `MED_USUARIO_ID`, `CUI_USUARIO_ID`, `PACIENTE_GRADO`) VALUES
 (1, 2, 3, 'Bajo'),
 (4, 2, 3, 'Bajo'),
-(10, 2, 3, 'Bajo'),
 (11, 2, 3, 'Bajo');
 
 -- --------------------------------------------------------
@@ -143,7 +136,7 @@ CREATE TABLE `resultado` (
   `USUARIO_ID` int(11) NOT NULL,
   `JUEGO_ID` int(11) NOT NULL,
   `RESULTADO_PUNTUACION` decimal(10,0) NOT NULL,
-  `RESULTADO_FECHA` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `RESULTADO_FECHA` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -186,12 +179,6 @@ INSERT INTO `usuario` (`USUARIO_ID`, `USUARIO_NOMBRE`, `USUARIO_EMAIL`, `USUARIO
 (2, 'Dr Albuja', 'albuja@gmail.com', '123', '988112755', 'Medico'),
 (3, 'Pedro Sanchez', 'pedro@gmail.com', '123', '998862983', 'Cuidador'),
 (4, 'Ramiro Mena', 'ramiro@gmail.com', '123', '988112756', 'Paciente'),
-(5, '', '', '', '0', 'Paciente'),
-(6, '', '', '', '0', 'Paciente'),
-(7, '', '', '', '0', 'Paciente'),
-(8, '', '', '', '0', 'Paciente'),
-(9, '', '', '', '0', 'Paciente'),
-(10, '', '', '', '0', 'Paciente'),
 (11, 'Luis Loachamin', 'luis@gmail.com', '123', '988112756', 'Paciente'),
 (12, 'Mario lopez', 'mario@gmail.com', '123', '988112756', 'Medico'),
 (13, 'Arturo gomez', 'arturo@gmail.com', '123', '988112756', 'Cuidador');
@@ -262,7 +249,7 @@ ALTER TABLE `juego`
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `MENSAJE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `MENSAJE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `resultado`
