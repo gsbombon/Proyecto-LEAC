@@ -25,6 +25,8 @@ public class MenuTeleasistencia extends AppCompatActivity {
     }
     public void btn_mensajeria(View view){
         Intent i = new Intent(this,Chat.class);
+        String idUser = getIntent().getStringExtra("idUser");
+        i.putExtra("idUser",idUser);
         startActivity(i);
     }
 }

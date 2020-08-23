@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetalleJuego"></activity>
+        <activity android:name=".ChatCuidadorActivity"></activity>
+        <activity android:name=".MenuMensajeriaActivity" />
+        <activity android:name=".DetalleJuego" />
         <activity android:name=".Chat" />
         <activity android:name=".Resultados" />
         <activity android:name=".emergenciaActivity" />

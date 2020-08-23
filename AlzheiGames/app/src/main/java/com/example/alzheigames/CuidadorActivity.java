@@ -14,20 +14,15 @@ public class CuidadorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuidador);
-
-        verResultado = (Button)findViewById(R.id.btnResultado);
         btnTeleasistencia = (Button)findViewById(R.id.btnTeleasistencia);
-        verResultado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent verResultado = new Intent(CuidadorActivity.this, Cuidador_verResultado.class);
-                startActivity(verResultado);
-            }
-        });
+
         btnTeleasistencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent tele = new Intent(CuidadorActivity.this,Chat.class);
+
+                Intent tele = new Intent(CuidadorActivity.this,MenuMensajeriaActivity.class);
+                String idUser=getIntent().getStringExtra("idUser");
+                tele.putExtra("idUser",idUser);
                 startActivity(tele);
             }
         });

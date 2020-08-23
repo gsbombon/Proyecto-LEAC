@@ -34,16 +34,6 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnResultado"
-            android:layout_width="412dp"
-            android:layout_height="176dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/result2"
-            android:textSize="36sp" />
-
-        <Button
             android:id="@+id/btnTeleasistencia"
             android:layout_width="412dp"
             android:layout_height="176dp"
