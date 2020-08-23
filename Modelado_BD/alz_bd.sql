@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2020 a las 21:29:19
+-- Tiempo de generación: 23-08-2020 a las 04:42:05
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.2.32
 
@@ -37,7 +37,8 @@ CREATE TABLE `cuidador` (
 --
 
 INSERT INTO `cuidador` (`USUARIO_ID`, `CUIDADOR_HORARIO`) VALUES
-(3, 'Matutino');
+(3, 'Matutino'),
+(13, 'Nocturno');
 
 -- --------------------------------------------------------
 
@@ -55,7 +56,9 @@ CREATE TABLE `juego` (
 --
 
 INSERT INTO `juego` (`JUEGO_ID`, `JUEGO_NOMBRE`) VALUES
-(1, 'Memorama');
+(1, 'Memorama'),
+(2, 'Adivina'),
+(3, 'Rompecabezas');
 
 -- --------------------------------------------------------
 
@@ -73,7 +76,38 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`USUARIO_ID`, `MEDICO_ESPECIALIDA`) VALUES
-(2, 'Neurologo');
+(2, 'Neurologo'),
+(12, 'Medicina física y rehabilitaci');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensaje`
+--
+
+CREATE TABLE `mensaje` (
+  `MENSAJE_ID` int(11) NOT NULL,
+  `MENSAJE_TEXTO` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `ID_PACIENTE` int(11) NOT NULL,
+  `ID_CUIDADOR` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`) VALUES
+(1, 'Hola Amigo', 1, 3),
+(2, 'Hola amigo', 4, 3),
+(6, 'Bien y tu', 4, 3),
+(7, 'jjjjjjjjjjjj', 1, 3),
+(8, 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA COMOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ESTAS ', 1, 3),
+(9, 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA COMOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ESTAS ', 1, 3),
+(10, 'nihola estoy bien', 1, 3),
+(11, 'hola Ramiro mena', 4, 3),
+(12, 'hola Ramiro mena', 4, 3),
+(13, 'hola Ramiro mena', 4, 3),
+(14, 'hola', 11, 3);
 
 -- --------------------------------------------------------
 
@@ -93,7 +127,10 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`USUARIO_ID`, `MED_USUARIO_ID`, `CUI_USUARIO_ID`, `PACIENTE_GRADO`) VALUES
-(1, 2, 3, 'Bajo');
+(1, 2, 3, 'Bajo'),
+(4, 2, 3, 'Bajo'),
+(10, 2, 3, 'Bajo'),
+(11, 2, 3, 'Bajo');
 
 -- --------------------------------------------------------
 
@@ -115,17 +152,15 @@ CREATE TABLE `resultado` (
 
 INSERT INTO `resultado` (`RESULTADO_ID`, `USUARIO_ID`, `JUEGO_ID`, `RESULTADO_PUNTUACION`, `RESULTADO_FECHA`) VALUES
 (9, 1, 1, '12', '2020-07-27 05:04:21'),
-(10, 1, 1, '0', '2020-07-27 05:21:16'),
-(11, 1, 1, '0', '2020-07-27 05:25:13'),
-(12, 1, 1, '0', '2020-07-27 05:31:45'),
-(13, 1, 1, '6', '2020-07-27 05:33:30'),
-(14, 1, 1, '33', '2020-07-27 05:37:42'),
 (15, 1, 1, '33', '2020-07-27 06:04:50'),
-(16, 1, 1, '0', '2020-07-27 18:15:50'),
-(17, 1, 1, '0', '2020-07-27 18:21:44'),
-(18, 1, 1, '0', '2020-07-27 18:24:24'),
 (19, 1, 1, '50', '2020-07-27 18:28:00'),
-(20, 1, 1, '40', '2020-07-27 18:44:53');
+(20, 1, 1, '40', '2020-07-27 18:44:53'),
+(21, 4, 1, '75', '2020-07-28 04:16:58'),
+(22, 1, 2, '20', '2020-07-28 21:37:49'),
+(23, 1, 1, '40', '2020-07-28 22:42:56'),
+(24, 1, 2, '20', '2020-07-28 22:44:43'),
+(25, 1, 1, '50', '2020-07-28 23:13:32'),
+(26, 4, 1, '33', '2020-08-11 01:19:22');
 
 -- --------------------------------------------------------
 
@@ -149,7 +184,17 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`USUARIO_ID`, `USUARIO_NOMBRE`, `USUARIO_EMAIL`, `USUARIO_PASSWORD`, `USUARIO_TELEFONO`, `USUARIO_ROL`) VALUES
 (1, 'Carlos Perez', 'carlos@gmail.com', '123', '988112757', 'Paciente'),
 (2, 'Dr Albuja', 'albuja@gmail.com', '123', '988112755', 'Medico'),
-(3, 'Pedro Sanchez', 'pedro@gmail.com', '123', '988112757', 'Cuidador');
+(3, 'Pedro Sanchez', 'pedro@gmail.com', '123', '998862983', 'Cuidador'),
+(4, 'Ramiro Mena', 'ramiro@gmail.com', '123', '988112756', 'Paciente'),
+(5, '', '', '', '0', 'Paciente'),
+(6, '', '', '', '0', 'Paciente'),
+(7, '', '', '', '0', 'Paciente'),
+(8, '', '', '', '0', 'Paciente'),
+(9, '', '', '', '0', 'Paciente'),
+(10, '', '', '', '0', 'Paciente'),
+(11, 'Luis Loachamin', 'luis@gmail.com', '123', '988112756', 'Paciente'),
+(12, 'Mario lopez', 'mario@gmail.com', '123', '988112756', 'Medico'),
+(13, 'Arturo gomez', 'arturo@gmail.com', '123', '988112756', 'Cuidador');
 
 --
 -- Índices para tablas volcadas
@@ -172,6 +217,14 @@ ALTER TABLE `juego`
 --
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`USUARIO_ID`);
+
+--
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD PRIMARY KEY (`MENSAJE_ID`),
+  ADD KEY `FK_PACIENTE` (`ID_PACIENTE`),
+  ADD KEY `FK_CUIDADOR` (`ID_CUIDADOR`);
 
 --
 -- Indices de la tabla `paciente`
@@ -203,19 +256,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `JUEGO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `JUEGO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  MODIFY `MENSAJE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `resultado`
 --
 ALTER TABLE `resultado`
-  MODIFY `RESULTADO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `RESULTADO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
@@ -232,6 +291,13 @@ ALTER TABLE `cuidador`
 --
 ALTER TABLE `medico`
   ADD CONSTRAINT `FK_ES3` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuario` (`USUARIO_ID`);
+
+--
+-- Filtros para la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD CONSTRAINT `mensaje_ibfk_1` FOREIGN KEY (`ID_PACIENTE`) REFERENCES `paciente` (`USUARIO_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mensaje_ibfk_2` FOREIGN KEY (`ID_CUIDADOR`) REFERENCES `cuidador` (`USUARIO_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `paciente`
