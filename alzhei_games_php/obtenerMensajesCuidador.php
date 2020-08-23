@@ -6,20 +6,12 @@
      $accion = $_POST['accion'];
      $mensaje = $_POST['mensaje'];
 $idPaciente = $_POST['idPaciente'];
+$idCuidador = $_POST['idCuidador'];
     //$accion = "";
     //$mensaje = "Bien y tu";
 //$idPaciente = "1";
     
     if($accion == "nuevo") {
-
-$sql3="SELECT CUI_USUARIO_ID FROM `paciente` WHERE `USUARIO_ID`='$idPaciente'";
- $res3=$mysqli->query($sql3);
-
-while($reg=$res3->fetch_array()){
-$idCuidador= $reg[0];
-}
-
-
 
         $sql_insert = "INSERT INTO `mensaje` (`MENSAJE_ID`, `MENSAJE_TEXTO`, `ID_PACIENTE`, `ID_CUIDADOR`) VALUES (NULL, '$mensaje', '$idPaciente', '$idCuidador');";
         $query = $mysqli->query($sql_insert);
