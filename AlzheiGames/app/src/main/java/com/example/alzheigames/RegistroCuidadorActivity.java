@@ -71,7 +71,8 @@ public class RegistroCuidadorActivity extends AppCompatActivity {
                         etemail.setError("Introduce un correo valido");
                         etemail.requestFocus();
                     } else{
-                        registroCuidador("http://192.168.0.102/alzhei_games/registrarCuidador.php");
+                        //registroCuidador("http://192.168.0.102/alzhei_games/registrarCuidador.php");
+                        registroCuidador("http://192.168.100.83/alzhei_games/registrarCuidador.php");
                     }
                 }
 

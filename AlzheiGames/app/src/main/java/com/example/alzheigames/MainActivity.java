@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     edtPassword.requestFocus();
                 }else {
                     if(validarCorreo(email)) {
-                        validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
-                        //validarUsuario("http://192.168.100.118/alzhei_games/validar_usuario.php");
+                        //validarUsuario("http://192.168.0.102/alzhei_games/validar_usuario.php");
+                        validarUsuario("http://192.168.100.83/alzhei_games/validar_usuario.php");
                     }else{
                         edtUsuario.setError("Introduce un correo valido");
                         edtUsuario.requestFocus();

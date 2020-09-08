@@ -1,4 +1,6 @@
 <?php
+
+    
     class Conexion {
         protected $dblink;
                 
@@ -15,9 +17,10 @@
     
 	class Usuario extends Conexion{
         public function listar(){
+            $idMedico = $_GET['id'];
             $sql = "SELECT u.USUARIO_NOMBRE
                     FROM usuario u,paciente p
-                    WHERE p.MED_USUARIO_ID='2' AND u.USUARIO_ID=p.USUARIO_ID;";
+                    WHERE p.MED_USUARIO_ID='$idMedico' AND u.USUARIO_ID=p.USUARIO_ID;";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();            
             return $sentencia->fetchAll(PDO::FETCH_OBJ);

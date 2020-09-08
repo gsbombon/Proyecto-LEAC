@@ -31,8 +31,8 @@ public class MenuMensajeriaActivity extends AppCompatActivity {
     ArrayAdapter<String> adaptador;
     ArrayList<String> listaMensajes;
     ArrayList<String> listaIdPacientes;
-    String URL_MENSAJES = "http://192.168.0.102/alzhei_games/obtenerPacinetesCuidador.php";
-
+    //String URL_MENSAJES = "http://192.168.0.102/alzhei_games/obtenerPacinetesCuidador.php";
+    String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerPacinetesCuidador.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

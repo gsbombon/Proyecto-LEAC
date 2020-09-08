@@ -91,7 +91,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                         etemail.setError("Introduce un correo valido");
                         etemail.requestFocus();
                     } else{
-                        registrarPaciente("http://192.168.0.102/alzhei_games/registrarPaciente.php");
+                        //registrarPaciente("http://192.168.0.102/alzhei_games/registrarPaciente.php");
+                        registrarPaciente("http://192.168.100.83/alzhei_games/registrarPaciente.php");
                     }
                 }
 
@@ -142,8 +143,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     }
     public void listarCuidador(){
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtener.php",
-        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtener.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtener.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtener.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -175,8 +176,8 @@ public class RegistroPacienteActivity extends AppCompatActivity {
     public void listarMedico(){
 
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtenerMedico.php",
-        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerMedico.php",
+        //StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.0.102/alzhei_games/obtenerMedico.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST,"http://192.168.100.83/alzhei_games/obtenerMedico.php",
 
                 new Response.Listener<String>() {
                     @Override
