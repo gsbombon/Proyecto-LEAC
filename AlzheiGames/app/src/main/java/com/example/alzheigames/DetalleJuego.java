@@ -54,6 +54,7 @@ public class DetalleJuego extends AppCompatActivity {
 
     public void obtenPuntaje(String URL){
         txtPuntajeJuego = (TextView) findViewById(R.id.textPuntaje123);
+
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

@@ -90,8 +90,7 @@ public class RegistroMedicoActivity extends AppCompatActivity {
                         etemail.setError("Introduce un correo valido");
                         etemail.requestFocus();
                     } else{
-                        //registroMedico("http://192.168.0.102/alzhei_games/registrarCuidador.php");
-                        registroMedico("http://192.168.100.83/alzhei_games/registrarCuidador.php");
+                        registroMedico("http://192.168.100.83/alzhei_games/registrarMedico.php");
                     }
                 }
 

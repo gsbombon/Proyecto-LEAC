@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.text.HtmlCompat;
 
 import android.annotation.SuppressLint;
-import android.graphics.Typeface;
-import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -36,7 +34,7 @@ public class ChatCuidadorActivity extends AppCompatActivity {
     ListView lvMensajes;
     ArrayAdapter<String> adaptador;
     ArrayList<String> listaMensajes;
-    //String URL_MENSAJES = "http://192.168.0.102/alzhei_games/obtenerMensajesCuidador.php";
+    //String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajesCuidador.php";
     //String URL_MENSAJES = "http://192.168.0.4:8080/alzhei_games/obtenerMensajes.php";
     String URL_MENSAJES = "http://192.168.100.83/alzhei_games/obtenerMensajes.php";
 
@@ -113,7 +111,6 @@ public class ChatCuidadorActivity extends AppCompatActivity {
                         try{
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("mensajes");
-
                             for(int i = 0 ; i < jsonArray.length() ; i++) {
                                 JSONObject objeto = jsonArray.getJSONObject(i);
 
@@ -122,12 +119,11 @@ public class ChatCuidadorActivity extends AppCompatActivity {
                                 String emisor=objeto.getString("MENSAJE_EMISOR");
                                 String datos;
                                 if(emisor.equals("Cuidador")){
-                                   datos="ENVIADO...\n Fecha: "+fecha+"\n";
+                                    datos="ENVIADO...\n Fecha: "+fecha+"\n";
                                 }else{
                                     datos="RECIBIDO...\nFecha:"+fecha+"\n";
                                 }
                                 listaMensajes.add(datos+"\n Mensaje: \n"+objeto.getString("MENSAJE_TEXTO"));
-                               // listaMensajes.add("De: \n Fecha: 10/30/40\n");
                             }
                             adaptador = new ArrayAdapter<String>(ChatCuidadorActivity.this,android.R.layout.simple_list_item_1, listaMensajes);
                             lvMensajes.setAdapter(adaptador);
@@ -152,7 +148,6 @@ public class ChatCuidadorActivity extends AppCompatActivity {
                 return parametros;
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }

@@ -91,7 +91,6 @@ public class RegistroPacienteActivity extends AppCompatActivity {
                         etemail.setError("Introduce un correo valido");
                         etemail.requestFocus();
                     } else{
-                        //registrarPaciente("http://192.168.0.102/alzhei_games/registrarPaciente.php");
                         registrarPaciente("http://192.168.100.83/alzhei_games/registrarPaciente.php");
                     }
                 }

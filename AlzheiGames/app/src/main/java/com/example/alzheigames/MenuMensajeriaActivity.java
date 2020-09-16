@@ -57,13 +57,11 @@ public class MenuMensajeriaActivity extends AppCompatActivity {
     public void obtenerPacientes() {
         listaMensajes = new ArrayList<String>();
         listaIdPacientes = new ArrayList<String>();
-
+        final String idCui=getIntent().getStringExtra("idUser");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_MENSAJES,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
-                        // En este apartado se programa lo que deseamos hacer en caso de no haber errores
                         try{
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsonArray = jsonObject.getJSONArray("mensajes");
@@ -71,6 +69,7 @@ public class MenuMensajeriaActivity extends AppCompatActivity {
                                 JSONObject objeto = jsonArray.getJSONObject(i);
                                 listaMensajes.add(objeto.getString("USUARIO_NOMBRE"));
                                 listaIdPacientes.add(objeto.getString("USUARIO_ID"));
+
                             }
                             adaptador = new ArrayAdapter<String>(MenuMensajeriaActivity.this,android.R.layout.simple_list_item_1, listaMensajes);
                             lvMensajes.setAdapter(adaptador);
@@ -90,6 +89,7 @@ public class MenuMensajeriaActivity extends AppCompatActivity {
                 // En este metodo se hace el envio de valores de la aplicacion al servidor
                 Map<String, String> parametros = new Hashtable<String, String>();
                 parametros.put("accion", "");
+                parametros.put("idCui",idCui);
                 return parametros;
             }
         };
