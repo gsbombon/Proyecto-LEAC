@@ -213,7 +213,7 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
         if (curGuess == curLevel){
             disableButtons();
             if (curLevel == 12){
-                intPunto=12;
+                intPunto=100;
                 Toast.makeText(this, "Ganaste! "+curLevel, Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, "Puntaje: "+intPunto, Toast.LENGTH_SHORT).show();
                 agregarPuntajeDB();
@@ -225,6 +225,7 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
                         curGuess = 0;
                         curLevel++;
                         intPunto=curLevel-1;
+                        intPunto=(intPunto*100)/12;
                         generateButtons(curLevel);
                     }
                 }, 1000);
