@@ -6,9 +6,7 @@
      $accion = $_POST['accion'];
      $mensaje = $_POST['mensaje'];
 $idPaciente = $_POST['idPaciente'];
-    //$accion = "";
-    //$mensaje = "Bien y tu";
-//$idPaciente = "1";
+
     
     if($accion == "nuevo") {
 

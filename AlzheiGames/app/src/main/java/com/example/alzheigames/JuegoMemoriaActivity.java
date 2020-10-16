@@ -232,7 +232,6 @@ public class JuegoMemoriaActivity extends AppCompatActivity {
             }
         }
     }
-
     private void  lostGame(){
         Toast.makeText(this, "Fallaste! ", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Puntaje: "+intPunto, Toast.LENGTH_SHORT).show();
